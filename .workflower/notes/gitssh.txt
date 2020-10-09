@@ -1,0 +1,5 @@
+   To build git2r with a system installation of libgit2, please install:
+     libgit2-dev   (package on e.g. Debian and Ubuntu)
+     libgit2-devel (package on e.g. Fedora, CentOS and RHEL)
+     libgit2       (Homebrew package on OS X)
+
