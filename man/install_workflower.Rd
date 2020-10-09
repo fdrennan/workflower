@@ -2,36 +2,10 @@
 % Please edit documentation in R/install.R
 \name{install_workflower}
 \alias{install_workflower}
-\title{#' build_workflower_params
-build_workflower_params <- function() {
-  #' update_package
-  #' importFrom fs file_exists
-  params <- list(
-    styler = c(
-      directories = 'R',
-      files = 'main.R'
-    )
-  )
-}
-install_workflower}
+\title{install_workflower}
 \usage{
-install_workflower(delete = FALSE)
-
 install_workflower(delete = FALSE)
 }
 \description{
-#' build_workflower_params
-build_workflower_params <- function() {
-  #' update_package
-  #' importFrom fs file_exists
-  params <- list(
-    styler = c(
-      directories = 'R',
-      files = 'main.R'
-    )
-  )
-}
-install_workflower
-
 install_workflower
 }

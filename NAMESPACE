@@ -2,3 +2,6 @@
 
 export(install_workflower)
 export(update_package)
+export(wf_delete)
+export(wf_home)
+export(wf_print)
