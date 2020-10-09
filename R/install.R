@@ -31,8 +31,6 @@ wf_delete <- function() {
   fs::dir_delete(wf_home())
 }
 
-
-
 #' install_workflower
 #' @export install_workflower
 install_workflower <- function(delete = FALSE) {
