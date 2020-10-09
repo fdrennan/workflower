@@ -10,17 +10,30 @@
 #'   )
 #' }
 
+# https://github.com/ropensci/git2r.git
+
 #' install_workflower
 #' @export install_workflower
-install_workflower <- function() {
+install_workflower <- function(delete = FALSE) {
   workflower_home <- fs::path_expand("~/.workflower")
-  if (fs::dir_exists(workflower_home)) {
-    # cli::cli_alert_info(readr::read_file(file.path(workflower_home, 'notes', 'gitssh.txt')))
-    cli::cli_alert_warning("workflower already exists at {workflower}")
-  } else {
-    fs::dir_create(workflower_home)
-    cli::cli_alert_success("Installed workflower at {path.expand('~/.workflower')}")
+  cli::cli_alert_info("Setting up HOME directory paths for workflower at {workflower_home}")
+
+  if (delete) {
+    if (fs::dir_exists(workflower_home)) {
+      fs::dir_delete(workflower_home)
+    }
   }
+  if (fs::dir_exists(workflower_home)) {
+    # cli::cli_alert_info(readr::read_file(file.path(workflower_home, "notes", "gitssh.txt")))
+    cli::cli_alert_warning("workflower already exists at {workflower_home}\nSkipped for now")
+    return(FALSE)
+  }
+
+  fs::dir_create(workflower_home)
+  cmd_git <- glue::glue("git clone https://github.com/fdrennan/workflower.git {workflower_home}")
+  cli::cli_alert_info(cmd_git)
+  system(cmd_git)
+  cli::cli_alert_success("Installed workflower at {workflower_home}")
 }
 
 
@@ -37,16 +50,6 @@ update_package <- function(params = NULL) {
   if (fs::dir_exists("R")) styler::style_dir("R")
   roxygen2::roxygenise()
   fs::dir_ls()
-  renv::snapshot()
-  styler::style_dir(
-    style = styler::tidyverse_style,
-    filetype = c("R", "Rprofile"),
-    recursive = TRUE,
-    exclude_files = NULL,
-    exclude_dirs = c("packrat", "renv"),
-    include_roxygen_examples = TRUE
-  )
+  renv::snapshot(prompt = FALSE)
   devtools::install()
 }
-
-

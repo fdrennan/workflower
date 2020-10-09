@@ -214,10 +214,15 @@
     },
     "git2r": {
       "Package": "git2r",
-      "Version": "0.27.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "531a82d1beed1f545beb25f4f5945bf7"
+      "Version": "0.27.1.9000",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "git2r",
+      "RemoteUsername": "ropensci",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "1b1ba566e15adfdad1f9ab80eed1f37cafd2155a",
+      "Hash": "067a197b5d618a43a57f727cf4dd6a69"
     },
     "glue": {
       "Package": "glue",

@@ -15,7 +15,7 @@ build_workflower_params <- function() {
 }
 install_workflower}
 \usage{
-install_workflower()
+install_workflower(delete = FALSE)
 }
 \description{
 #' build_workflower_params
